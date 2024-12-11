@@ -10,6 +10,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Progetto Green Box</title>
   <style>
+    header {
+      position: fixed;
+      top: 5%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80%;
+      max-width: 90%;
+      height: 50px;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 75px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-align: center;
+      padding: 1em;
+      z-index: 1000;
+    }
+    
     .subtitles {
       display: flex;
       flex: 1;
@@ -93,25 +112,6 @@
       background-attachment: fixed;
       -ms-overflow-style: none;
       scrollbar-width: none;
-    }
-
-    header {
-      position: fixed;
-      top: 5%;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 80%;
-      max-width: 600px;
-      height: 150px;
-      background: rgba(255, 255, 255, 0.2);
-      border-radius: 75px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      text-align: center;
-      padding: 1em;
-      z-index: 1000;
     }
 
     main {
@@ -305,7 +305,7 @@
 <body>
 
   <header>
-    <h1 style="cursor: default;"><img src="resources/favicon.png" alt="Logo" height="24"> • Progetto Green Box<span class="subtitles" style="font-family: monospace; font-size: .2em;"><a href="#introduzione">Introduzione</a><a href="#introduzione">Introduzione2</a><a href="#introduzione">Introduzione3</a></span></h1>
+    <h1 style="cursor: default;"><img src="resources/favicon.png" alt="Logo" height="24"> • Progetto Green Box</h1><span class="subtitles" style="font-family: monospace; font-size: 1.5em;"><a href="#introduzione">Introduzione</a><a href="#introduzione">Introduzione2</a><a href="#introduzione">Introduzione3</a></span>
   </header>
   <br>
   <br>
