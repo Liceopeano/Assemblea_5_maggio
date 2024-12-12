@@ -322,7 +322,7 @@
   <br>
   <br>
   <main>
-    <div id="blocco introduzione"></div>
+    <div id="introduzione"></div>
     <label for="toggle1" style="cursor: pointer;"><span class="container">
       <div class="text" data-text=" "><h2>Introduzione</h2></div>
     </span></label>
@@ -331,7 +331,7 @@
     <div class="content1"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d82126.31592441263!2d8.160130762781279!3d49.96546824232938!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47bd912e33df1379%3A0x422d4d510db1ba0!2sMainz%2C%20Germania!5e0!3m2!1sit!2sit!4v1727301380463!5m2!1sit!2sit" width="600" height="450" style="display: block; margin: 0 auto; border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
     <br>
     <br>
-    <div id="blocco attivita"></div>
+    <div id="attivita"></div>
     <label for="toggle2" style="cursor: pointer;"><span class="container">
       <div class="text" data-text=" "><h2>Attività Principali</h2></div>
     </span></label>
@@ -379,7 +379,7 @@
   <p style="text-align: center; opacity: 0;">Yes, I copied my old source code and built a new site on top of it, so what? (BTW I am somehow an "essentian component" of this page... don't remove me, ok?)</p>
 
   <footer>
-    <p style="color: #3ae031; font-size: 16px;">Giovanni Paolo Fraternale<br><gaga style="color: #3ae031; font-size: 12px; margin-top: -50px;">e Riccardo Prete</gaga></p>
+    <p style="color: #3ae031; font-size: 16px;"><i class="fa-regular fa-copyright"></i> GreenBox<br><gaga style="color: #3ae031; font-size: 12px; margin-top: -50px;"><i class="fa-regular fa-registered"></i> GreenBox</gaga></p>
   </footer>
 
   <script>
@@ -424,28 +424,6 @@
       });
     });
   });
-
-  window.addEventListener('scroll', function() {
-  // Gli ID da monitorare
-  const elements = document.querySelectorAll('[id^="blocco"]');
-  
-  elements.forEach(function(element) {
-    const elementPosition = element.getBoundingClientRect();
-    const footer = document.getElementById("my-footer");
-
-    // Verifica se l'elemento è passato sopra il footer
-    if (elementPosition.bottom <= window.innerHeight) {
-      // Modifica il testo del footer in base all'ID dell'elemento
-      if (element.id === "introduzione") {
-        footer.querySelector('p').innerHTML = "Capitolo Introduttivo -->";
-      } else if (element.id === "attivita") {
-        footer.querySelector('p').innerHTML = "Capitolo Attività -->";
-      } else if (element.id === "test") {
-        footer.querySelector('p').innerHTML = "Capitolo Test -->";
-      }
-    }
-  });
-});
   </script>
 
 </body>
