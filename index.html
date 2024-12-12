@@ -85,6 +85,7 @@
       height: 100%;
       width: 100%;
       user-select: none;
+      scroll-behavior: smooth;
     }
     
     body::-webkit-scrollbar {
@@ -304,7 +305,7 @@
 <body>
 
   <header>
-    <img src="resources/favicon.png" alt="Logo" height="35"><h1 style="cursor: default; margin-left: 10px;">• GreenBox</h1><span class="subtitles" style="font-family: monospace; font-size: 1.5em;"><a href="#introduzione">Introduzione</a><a href="#test">Introduzione2</a><a href="#introduzione">Introduzione3</a></span>
+    <img src="resources/favicon.png" alt="Logo" height="35"><h1 style="cursor: default; margin-left: 10px;">• GreenBox</h1><span class="subtitles" style="font-family: monospace; font-size: 1.5em;"><a href="#introduzione" class="scroll-link">Introduzione</a><a href="#test" class="scroll-link">Introduzione2</a><a href="#introduzione" class="scroll-link">Introduzione3</a></span>
   </header>
   <br>
   <br>
@@ -401,6 +402,20 @@ servizio.</p>
           }
         });
       });
+    document.querySelectorAll('.scroll-link').forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      const targetId = this.getAttribute('href').substring(1);
+      const targetElement = document.getElementById(targetId);
+      const offset = 20;  // Offset di 20px verso l'alto
+      const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY - offset;
+      
+      window.scrollTo({
+        top: targetPosition,
+        behavior: 'smooth'
+      });
+    });
+  });
   </script>
 
 </body>
