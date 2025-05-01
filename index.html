@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
     integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GreenBox</title>
+  <title>Assemblea_5_Maggio</title>
   <style>
     header {
       position: fixed;
@@ -335,6 +335,7 @@
   <br>
   <br>
   <main>
+    <div class="main">contenuto1</div>
     <p id="status"></p>
     <div id="introduzione"></div>
     <label for="toggle1" style="cursor: pointer;"><span class="container">
@@ -403,7 +404,6 @@
 
   <script>
     function loadJSON() {
-      fetch('Assemblea_5_maggio/resources/json/file.json')
       .then(response => response.json())
         .then(data => {
           const statusElement = document.getElementById('status');
