@@ -335,6 +335,29 @@
   <br>
   <br>
   <main>
+    <p id="status"></p>
+     <script>
+    function loadJSON() {
+      fetch('../resources/json/file.json')
+        .then(response => response.json())
+        .then(data => {
+          const statusElement = document.getElementById('status');
+          if (data.calcetto) {
+            statusElement.textContent = 'CALCETTO DISPONIBILE';
+            statusElement.className = 'disponibile';
+          } else {
+            statusElement.textContent = 'CALCETTO NON DISPONIBILE';
+            statusElement.className = 'non-disponibile';
+          }
+        })
+        .catch(error => {
+          console.error('Errore nel caricamento del file JSON:', error);
+        });
+    }
+
+    
+    window.onload = loadJSON;
+  </script>
     <div id="introduzione"></div>
     <label for="toggle1" style="cursor: pointer;"><span class="container">
       <div class="text" data-text=" "><h2>Introduzione</h2></div>
