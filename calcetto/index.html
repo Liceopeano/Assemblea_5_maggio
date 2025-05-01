@@ -34,7 +34,7 @@
     }
 
      @font-face {
-       font-family: Preospe; src: url('resources/preospe.otf');
+       font-family: Preospe; src: url(../'resources/preospe.otf');
      } 
     
     .subtitles {
@@ -165,7 +165,7 @@
       content: "• Calcetto";
       text-align: left;
       cursor: pointer;
-      position: left;
+      position: center;
       top: 0;
       left: 0;
       right: 0;
@@ -291,16 +291,6 @@
       opacity: 0;
       transition: opacity 0.5s ease, transform 0.5s ease;
     }
-    
-    .show {
-      display: block;
-      animation: fadeInDown 0.5s forwards;
-    }
-
-    .hide {
-      animation: fadeOutUp 0.5s forwards;
-      opacity: 0;
-    }
 
     .textshadow {
       border:2px solid #3ae031;
@@ -323,7 +313,7 @@
 <body>
 
   <header>
-    <img src="../resources/peano.png" alt="Logo" height="35"><h1 style="cursor: default; margin-left: 10px;">• Calcetto</h1><span class="subtitles" style="font-family: monospace; font-size: 1.4em;"><a href="#introduzione" class="scroll-link textshadow">Introduzione</a><a href="#attivita" class="scroll-link textshadow">Attività Principali</a><a href="#commercio" class="scroll-link textshadow">Commercio e Distribuzione</a><a href="#mercato" class="scroll-link textshadow">Mercato di Riferimento</a><a href="#espansione" class="scroll-link textshadow">Espansione Iniziale</a><a href="#istituzioni" class="scroll-link textshadow">Rapporti con le Istituzioni</a></span>
+    <img src="../resources/peano.png" alt="Logo" height="35"><h1 style="cursor: default; margin-left: 10px;">• Calcetto</h1><span class="subtitles" style="font-family: monospace; font-size: 1.4em;">
   </header>
   <br>
   <br>
@@ -332,58 +322,9 @@
     <label for="toggle1" style="cursor: pointer;"><span class="container">
       <div class="text" data-text=" "><h2>Introduzione</h2></div>
     </span></label>
-    <p><gugu style="color: #3ae031;"><i class="fa-solid fa-box"></i>GreenBox</gugu> è un servizio innovativo di micro-orti urbani progettato per trasformare ogni spazio cittadino in un'oasi verde. La nostra missione è rendere le città più eco-friendly e consentire a chiunque di coltivare frutta, verdura e piante con il minimo sforzo, migliorando l’aria circostante e offrendo cibo potenzialmente illimitato.</p><p>Che tu sia una famiglia desiderosa di avvicinare i bambini alla natura, una scuola in cerca di progetti educativi o un lavoratore impegnato che sogna un angolo verde a casa, <gugu style="color: #3ae031;"><i class="fa-solid fa-box"></i>GreenBox</gugu> rende il giardinaggio urbano accessibile a tutti.</p><p>I nostri box modulari, realizzati con materiali riciclati e sostenibili, sono progettati per adattarsi a qualsiasi ambiente, migliorandone estetica e qualità dell'aria. Grazie a un’app dedicata, puoi monitorare le tue piante in tempo reale, ricevere promemoria automatici e accedere a un team di esperti disponibile 24/7 per consulenze personalizzate.</p><p>Con <gugu style="color: #3ae031;"><i class="fa-solid fa-box"></i>GreenBox</gugu> puoi coltivare di tutto: erbe aromatiche, frutta, verdura, bonsai e persino piante ornamentali. Per chi desidera il massimo della resa, offriamo semenze geneticamente ottimizzate. I nostri sistemi intelligenti, alimentati da pannelli solari integrati, monitorano costantemente lo stato delle piante e generano statistiche dettagliate sul loro impatto ambientale.</p>
-    <input type="checkbox" id="toggle1" class="toggle" style="display: none;">
-    <div class="content1"><img src="resources/favicon.png" alt="favicon" height="333" style="display: block; margin: 0 auto;"></div>
-  </main>
+    <p><gugu style="color: #3ae031;"><i class="fa-solid fa-box"></i>GreenBox</gugu> e4 pale</p>
 
   <p style="text-align: center; opacity: 0;">Yes, I copied my old source code and built a new site on top of it, so what? (BTW I am somehow an "essentian component" of this page... don't remove me, ok?)</p>
-
-
-
-  <script>
-      window.addEventListener('DOMContentLoaded', () => {
-        const toggles = document.querySelectorAll('.toggle');
-      
-        toggles.forEach(toggle => {
-          const content = toggle.nextElementSibling;
-          if (!toggle.checked) {
-            content.style.display = 'none';
-          }
-        });
-      });
-
-      document.querySelectorAll('.toggle').forEach(toggle => {
-        toggle.addEventListener('change', function() {
-          const content = toggle.nextElementSibling;
-          if (toggle.checked) {
-            content.classList.remove('hide');
-            content.classList.add('show');
-            content.style.display = 'block';
-          } else {
-            content.classList.remove('show');
-            content.classList.add('hide');
-            setTimeout(() => {
-              content.style.display = 'none';
-            }, 200);
-          }
-        });
-      });
-    document.querySelectorAll('.scroll-link').forEach(link => {
-    link.addEventListener('click', function(e) {
-      e.preventDefault();
-      const targetId = this.getAttribute('href').substring(1);
-      const targetElement = document.getElementById(targetId);
-      const offset = 20;
-      const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY - offset;
-      
-      window.scrollTo({
-        top: targetPosition,
-        behavior: 'smooth'
-      });
-    });
-  });
-  </script>
 
 </body>
 
