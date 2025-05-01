@@ -21,15 +21,20 @@
       width: 85%;
       max-width: 95%;
       height: 50px;
-      background: rgba(255, 255, 255, 0.7);
+      background: rgba(34, 37, 39, 0.7);
       border-radius: 75px;
       display: flex;
       align-items: center;
-      justify-content: center;
-      color: white;
-      text-align: center;
-      padding: 1em;
-      z-index: 1000;
+      justify-content: space-between;
+      padding: 0 1em;
+      z-index: -1;
+    }
+    
+    header .title {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      pointer-events: none;
     }
 
      @font-face {
