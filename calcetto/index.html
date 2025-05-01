@@ -26,13 +26,26 @@
       border-radius: 75px;
       display: flex;
       align-items: center;
-      justify-content: center;
-      color: white;
-      text-align: center;
-      padding: 1em;
+      justify-content: space-between;
+      padding: 0 1em;
       z-index: 1000;
     }
+    
+    header .title {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      pointer-events: none;
+    }
 
+    header h1 {
+      margin: 0;
+      color: white;
+      text-align: center;
+      font-size: 1.5em;
+    }
+
+    
      @font-face {
        font-family: Preospe; src: url(../'resources/preospe.otf');
      } 
@@ -306,7 +319,9 @@
 <body>
 
   <header>
-    <img src="../resources/peano.png" alt="Logo" height="35"><h1 style="cursor: default;">Calcetto</h1><img style="margin-left:50%" src="../resources/peano.png" alt="Logo" height="35">
+    <img src="../resources/peano.png" alt="Logo" height="35">
+    <div class="title"><h1 style="cursor: default;">Calcetto</h1></div>
+    <img src="../resources/peano.png" alt="Logo" height="35">
   </header>
   <br>
   <main>
