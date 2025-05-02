@@ -433,15 +433,18 @@
 
           if (!checkbox || !contentDiv || !statusElement) continue;
 
+          const nomeFormattato = nome.replace(/_/g, " ")
+                                     .replace(/\b\w/g, char => char.toUpperCase());
+
           if (data[nome]) {
             checkbox.checked = true;
             contentDiv.style.display = "block";
-            statusElement.textContent = nome.charAt(0).toUpperCase() + nome.slice(1) + " disponibile";
+            statusElement.textContent = nomeFormattato + " disponibile";
             statusElement.className = "disponibile";
           } else {
             checkbox.checked = false;
             contentDiv.style.display = "none";
-            statusElement.textContent = nome.charAt(0).toUpperCase() + nome.slice(1) + " non disponibile";
+            statusElement.textContent = nomeFormattato + " non disponibile";
             statusElement.className = "non-disponibile";
           }
         }
@@ -453,6 +456,7 @@
 
   window.onload = loadJSON;
 </script>
+
 
 
 
