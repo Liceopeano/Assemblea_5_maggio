@@ -28,13 +28,20 @@
       justify-content: space-between;
       padding: 0 1em;
       z-index: 998;
+      overflow: hidden;
     }
     
     header .title {
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
+      flex-grow: 1;
+      text-align: center;
       pointer-events: none;
+    }
+
+    header h1 {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      font-size: 20px;
     }
 
      @font-face {
@@ -134,10 +141,6 @@
       text-align: center;
       display: flex;
       flex-direction: column;
-    }
-
-    .main .container{
-      left: 50%;
     }
 
     h2, h3, li {
@@ -297,6 +300,20 @@
       overflow: hidden;
       transition: 0.6s;
     }
+
+    @media (max-width: 500px) {
+      .main {
+        width: 90vw;
+        height: auto;
+        padding: 20px 10px;
+      }
+
+      .disponibile, .non-disponibile {
+        font-size: 16px;
+        word-wrap: break-word;
+      }
+    }
+
   </style>
 </head>
 
