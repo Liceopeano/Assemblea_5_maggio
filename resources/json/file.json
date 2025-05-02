@@ -1,6 +1,10 @@
 {
 
   "calcetto": true,
-  "autodifesa": false
+  "letture_in_bibblioteca": true,
+  "torneo_di_schacchi": true,
+  "competizioni_di_kahoot": true,
+  "studio_individuale": true,
+  "GAG(Gambe,_addominali,_glutei)": true
 
 }
