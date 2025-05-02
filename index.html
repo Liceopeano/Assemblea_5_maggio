@@ -146,21 +146,6 @@
       color: #fff;
     }
 
-    i {
-      margin-right: 1px;
-    }
-
-    footer {
-      text-align: center;
-      padding: 0.1em;
-      background-color: transparent;
-      position: fixed;
-      bottom: 0;
-      width: auto;
-      left: 0;
-      font-size: 16px;
-    }
-    
     a {
       color: #3ae031;
       text-decoration: none;
@@ -261,23 +246,6 @@
       border-radius: 8px;
     }
 
-    .text
-    {
-      text-transform: uppercase;
-      position: relative;
-      color: #34495e;
-    }
-
-    .text::before
-    {
-      content: attr(data-text);
-      position: absolute;
-      color: #fff;
-      width: 0;
-      overflow: hidden;
-      transition: 0.6s;
-    }
-
     .container::before
     {
       content: "";
@@ -299,31 +267,6 @@
       display: none;
       opacity: 0;
       transition: opacity 0.5s ease, transform 0.5s ease;
-    }
-    
-    .show {
-      display: block;
-      animation: fadeInDown 0.5s forwards;
-    }
-
-    .hide {
-      animation: fadeOutUp 0.5s forwards;
-      opacity: 0;
-    }
-
-    .textshadow {
-      border:2px solid #3ae031;
-      display: inline-block;
-      padding: 0 5px;
-      border-radius: 8px;
-      text-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2);transition: all 200ms ease-out;
-    }
-    .textshadow:hover {
-      text-shadow: 0 0 6px rgba(46, 168, 40, 1);
-    }
-
-    a {
-      text-decoration: none;
     }
 
     .disponibile {
@@ -348,7 +291,7 @@
   <br>
   <main>
     <div class="main"><img src="resources/peano.png"><br>
-      <a href="calcetto"><label for="toggle1" style="cursor: pointer;"><span class="container">
+      <a href="calcetto"><label style="cursor: pointer;"><span class="container">
       <div class="text" data-text=" "><p>Calcetto</p></div></span></label></a><br>
       <p id="status"></p>
     </div>
@@ -356,7 +299,7 @@
     <div class="main">contenuto3</div>
   </main>
 
-  <p style="text-align: center; opacity: 0;">Yes, I copied my old source code and built a new site on top of it, so what? (BTW I am somehow an "essentian component" of this page... don't remove me, ok?)</p>
+  <p style="text-align: center; opacity: 0;">HEYO, I am back! (BTW I am somehow an "essentian component" of this page... don't remove me, ok?)</p>
 
   <script>
     function loadJSON() {
