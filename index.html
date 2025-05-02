@@ -308,16 +308,16 @@
   <br>
   <main>
     <div class="main"><img src="resources/peano.png"><br>
-      <a href="calcetto"><label style="cursor: pointer;"><span class="container" class="cls_calcetto">
+      <a href="calcetto"><label style="cursor: pointer;"><span class="container" id="cls_calcetto">
       <div class="text" data-text=" "><p>Calcetto</p></div></span></label></a><br>
       <p id="status-calcetto"></p><input hidden type="checkbox" id="check-calcetto">
     </div>
     <div class="main"><img src="resources/peano.png"><br>
-      <a href="autodifesa"><label style="cursor: pointer;"><span class="container" class="cls_autodifesa">
+      <a href="autodifesa"><label style="cursor: pointer;"><span class="container" id="cls_autodifesa">
       <div class="text" data-text=" "><p>Autodifesa</p></div></span></label></a><br>
-      <p id="status-autodifesa"></p><input hidden type="checkbox" id="check-calcetto" name="autodifesa_disp">
+      <p id="status-autodifesa"></p><input hidden type="checkbox" id="check-autodifesa">
     </div>
-    <div class="main">contenuto3>/div>
+    <div class="main">contenuto3</div>
   </main>
 
   <p style="text-align: center; opacity: 0;">HEYO, I am back! (BTW I am somehow an "essentian component" of this page... don't remove me, ok?)</p>
@@ -329,7 +329,7 @@
       .then((data) => {
         for (const nome in data) {
           const checkbox = document.getElementById("check-" + nome);
-          const contentDiv = document.querySelector("#content.cls_" + nome);
+          const contentDiv = document.getElementById("cls_" + nome);
           const statusElement = document.getElementById("status-" + nome);
 
           if (!checkbox || !contentDiv || !statusElement) continue;
