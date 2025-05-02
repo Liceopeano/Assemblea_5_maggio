@@ -32,7 +32,6 @@
     }
     
     header .title {
-      flex-grow: 1;
       left: 50%;
       transform: translateX(-50%);
       text-align: center;
@@ -305,6 +304,10 @@
     }
 
     @media (max-width: 500px) {
+      header .title {
+        flex-grow: 1;
+      }
+      
       .disponibile, .non-disponibile {
         word-wrap: break-word;
       }
