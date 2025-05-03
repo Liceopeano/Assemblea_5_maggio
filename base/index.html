@@ -13,19 +13,17 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.4.0/css/all.css">
   <link rel="icon" type="image/x-icon" href="../resources/peano.png">
 
-  <!-- Stili -->
   <style>
     @font-face {
       font-family: Preospe;
       src: url('../resources/preospe.otf');
     }
-
     html, body {
       margin: 0;
       padding: 0;
+      font-family: 'Arial', sans-serif;
       height: 100%;
       width: 100%;
-      font-family: 'Arial', sans-serif;
       user-select: none;
       scroll-behavior: smooth;
       background-size: cover;
@@ -33,37 +31,22 @@
       background-attachment: fixed;
       background-color: #333;
     }
-
-    /* Sfondo dinamico sul body */
-    body {
-      /* verrà sovrascritto via JS con l'immagine corretta */
-      background-image: none;
-    }
-
     body::before {
       content: "";
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
       backdrop-filter: blur(8px);
       z-index: -1;
     }
-
-    body::-webkit-scrollbar {
-      display: none;
-    }
+    body::-webkit-scrollbar { display: none; }
 
     header {
       position: fixed;
-      top: 2.5%;
-      left: 50%;
+      top: 2.5%; left: 50%;
       transform: translateX(-50%);
-      width: 85%;
-      height: 50px;
-      background: rgba(34, 37, 39, 0.7);
-      backdrop-filter: blur(4px);
+      width: 85%; height: 50px;
+      background: rgba(34,37,39,0.7);
       border-radius: 75px;
       display: flex;
       align-items: center;
@@ -71,13 +54,11 @@
       padding: 0 1em;
       z-index: 998;
     }
-
     header .title {
       flex-grow: 1;
       text-align: center;
       pointer-events: none;
     }
-
     header h1 {
       font-family: Preospe;
       font-size: 20px;
@@ -85,13 +66,12 @@
       overflow: hidden;
       text-overflow: ellipsis;
       color: transparent;
-      background: linear-gradient(124deg, #ffffff, #dedede, #c7c7c7, #a8a8a8, #919090, #757575, #454444, #1c1c1c, #030303);
+      background: linear-gradient(124deg,#fff,#dedede,#c7c7c7,#a8a8a8,#919090,#757575,#454444,#1c1c1c,#030303);
       background-size: 1800% 1800%;
       -webkit-background-clip: text;
       background-clip: text;
       animation: rainbow 18s ease infinite;
     }
-
     @keyframes rainbow {
       0%   { background-position: 0% 82%; }
       50%  { background-position: 100% 19%; }
@@ -99,34 +79,27 @@
     }
 
     main {
-      position: relative;
-      z-index: 0;
-      margin: calc(50px + 2em) auto 1em; /* header-height + padding */
-      width: 70%;
-      padding: 20px;
-      background: rgba(34, 37, 39, 0.5);
-      border-radius: 50px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      text-align: center;
       animation: fadeInUp 1.5s ease;
+      width: 70%;
+      /* modifica: usa margine superiore in pixel per evitare sovrapposizione */
+      margin: 80px auto 20px;
+      padding: 20px;
+      background-color: #222527;
+      border-radius: 50px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      text-align: center;
     }
-
     @keyframes fadeInUp {
       from { opacity: 0; transform: translateY(50px); }
       to   { opacity: 1; transform: translateY(0); }
     }
 
-    h2, p {
-      color: #fff;
-      margin: 0.5em 0;
-    }
-
+    h2, p { color: #fff; }
     a {
       color: #3ae031;
       text-decoration: none;
       font-weight: bold;
     }
-
     .container {
       position: relative;
       display: inline-block;
@@ -135,33 +108,26 @@
       border-radius: 8px;
       margin-top: 20px;
     }
-
     .text {
       text-transform: uppercase;
       position: relative;
       color: #34495e;
     }
-
     .text::before {
       content: attr(data-text);
       position: absolute;
       color: #fff;
-      width: 0;
-      overflow: hidden;
+      width: 0; overflow: hidden;
       transition: 0.6s;
     }
-
     .container::before {
       content: "";
-      width: 0%;
-      height: 100%;
+      width: 0%; height: 100%;
       position: absolute;
       background: #3ae031;
-      right: 0;
-      top: 0;
+      right: 0; top: 0;
       transition: 0.6s;
     }
-
     .container:hover .text::before,
     .container:hover::before {
       width: 100%;
@@ -180,24 +146,23 @@
     <div id="dynamic-content">
       <p>Caricamento contenuto in corso...</p>
     </div>
-    <a href="../index.html" style="display: inline-block; margin-top: 1em; color: #fff;">
-      <i class="fas fa-house" style="font-size: 22px;"></i> Home
+    <a href="../index.html" style="margin-top:20px; display:inline-block; color:white;">
+      <i class="fas fa-house" style="font-size:22px;"></i> Home
     </a>
   </main>
 
   <script>
     document.addEventListener("DOMContentLoaded", () => {
-      const activity = window.location.hash.replace('#', '').toLowerCase();
+      const activity = window.location.hash.replace('#','').toLowerCase();
       if (!activity) return;
 
-      // Imposta lo sfondo sul body
+      // sfondo dinamico
       document.body.style.backgroundImage = `url('../resources/${activity}/bg_${activity}.jpg')`;
-
-      // Aggiorna il titolo nella header
+      // titolo navbar
       const formatted = activity.charAt(0).toUpperCase() + activity.slice(1);
       document.getElementById("header-title").textContent = formatted;
 
-      // Carica il contenuto dinamico
+      // contenuto esterno
       fetch(`../${activity}/index.html`)
         .then(r => {
           if (!r.ok) throw new Error("Contenuto non trovato");
@@ -206,7 +171,8 @@
         .then(html => {
           document.getElementById("dynamic-content").innerHTML = html;
         })
-        .catch(() => {
+        .catch(err => {
+          console.error(err);
           document.getElementById("dynamic-content").innerHTML =
             "<p style='color:red;'>Contenuto non disponibile.</p>";
         });
