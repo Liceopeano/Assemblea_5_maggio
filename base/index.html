@@ -334,15 +334,10 @@
     document.addEventListener("DOMContentLoaded", () => {
       const activity = window.location.hash.replace('#','').toLowerCase();
       if (!activity) return;
-
-      // sfondo dinamico
       document.body.style.backgroundImage = `url('../resources/${activity}/bg_${activity}.jpg')`;
-      // titolo navbar
       const formatted = activity.charAt(0).toUpperCase() + activity.slice(1);
       document.getElementById("header-title").textContent = formatted;
-
-      // contenuto esterno
-      fetch(`../${activity}/index.html`)
+      fetch(`../resources/${activity}/index.html`)
         .then(r => {
           if (!r.ok) throw new Error("Contenuto non trovato");
           return r.text();
