@@ -174,7 +174,7 @@
 <body>
   <header>
     <img src="../resources/peano.png" alt="Logo" height="35">
-    <div class="title"><h1>Attività</h1></div>
+    <div class="title"><h1 id="header-title">Attività</h1></div>
     <img src="../resources/peano.png" alt="Logo" height="35">
   </header>
 
@@ -191,10 +191,15 @@
     document.addEventListener("DOMContentLoaded", () => {
       const activity = window.location.hash.replace('#', '').toLowerCase();
       if (!activity) return;
+
+      // Imposta lo sfondo dinamico
       document.body.style.backgroundImage = `url('../resources/${activity}/bg_${activity}.jpg')`;
-      const title = activity.charAt(0).toUpperCase() + activity.slice(1);
-      document.querySelector("header h1").textContent = title;
-      document.getElementById("activity-title").textContent = title;
+
+      // Imposta il titolo nella navbar
+      const formattedTitle = activity.charAt(0).toUpperCase() + activity.slice(1);
+      document.getElementById("header-title").textContent = formattedTitle;
+
+      // Carica contenuto esterno
       fetch(`../${activity}/index.html`)
         .then(response => {
           if (!response.ok) throw new Error("Contenuto non trovato");
