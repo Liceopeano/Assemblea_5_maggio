@@ -23,9 +23,9 @@
     html, body {
       margin: 0;
       padding: 0;
-      font-family: 'Arial', sans-serif;
       height: 100%;
       width: 100%;
+      font-family: 'Arial', sans-serif;
       user-select: none;
       scroll-behavior: smooth;
       background-size: cover;
@@ -34,8 +34,13 @@
       background-color: #333;
     }
 
+    /* Sfondo dinamico sul body */
+    body {
+      /* verrà sovrascritto via JS con l'immagine corretta */
+      background-image: none;
+    }
+
     body::before {
-      /* Blur applicato solo al background-image */
       content: "";
       position: fixed;
       top: 0;
@@ -57,13 +62,14 @@
       transform: translateX(-50%);
       width: 85%;
       height: 50px;
-      background: rgba(34, 37, 39, 0.9); /* più opaco per evitare scomparsa */
+      background: rgba(34, 37, 39, 0.7);
+      backdrop-filter: blur(4px);
       border-radius: 75px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       padding: 0 1em;
-      z-index: 1000;
+      z-index: 998;
     }
 
     header .title {
@@ -87,31 +93,32 @@
     }
 
     @keyframes rainbow {
-      0% { background-position: 0% 82%; }
-      50% { background-position: 100% 19%; }
+      0%   { background-position: 0% 82%; }
+      50%  { background-position: 100% 19%; }
       100% { background-position: 0% 82%; }
     }
 
     main {
-      animation: fadeInUp 1.5s ease;
+      position: relative;
+      z-index: 0;
+      margin: calc(50px + 2em) auto 1em; /* header-height + padding */
       width: 70%;
-      margin: 80px auto 20px;  /* spazio sotto header senza blocco grigio */
       padding: 20px;
-      background-color: #222527;
+      background: rgba(34, 37, 39, 0.5);
       border-radius: 50px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
       text-align: center;
-      position: relative;
-      z-index: 500;
+      animation: fadeInUp 1.5s ease;
     }
 
     @keyframes fadeInUp {
       from { opacity: 0; transform: translateY(50px); }
-      to { opacity: 1; transform: translateY(0); }
+      to   { opacity: 1; transform: translateY(0); }
     }
 
     h2, p {
       color: #fff;
+      margin: 0.5em 0;
     }
 
     a {
@@ -173,7 +180,7 @@
     <div id="dynamic-content">
       <p>Caricamento contenuto in corso...</p>
     </div>
-    <a href="../index.html" style="margin-top: 20px; display: inline-block; color: white;">
+    <a href="../index.html" style="display: inline-block; margin-top: 1em; color: #fff;">
       <i class="fas fa-house" style="font-size: 22px;"></i> Home
     </a>
   </main>
@@ -183,25 +190,25 @@
       const activity = window.location.hash.replace('#', '').toLowerCase();
       if (!activity) return;
 
-      // Sfondo dinamico
+      // Imposta lo sfondo sul body
       document.body.style.backgroundImage = `url('../resources/${activity}/bg_${activity}.jpg')`;
 
-      // Titolo navbar
-      const formattedTitle = activity.charAt(0).toUpperCase() + activity.slice(1);
-      document.getElementById("header-title").textContent = formattedTitle;
+      // Aggiorna il titolo nella header
+      const formatted = activity.charAt(0).toUpperCase() + activity.slice(1);
+      document.getElementById("header-title").textContent = formatted;
 
-      // Carica contenuto esterno
+      // Carica il contenuto dinamico
       fetch(`../${activity}/index.html`)
-        .then(response => {
-          if (!response.ok) throw new Error("Contenuto non trovato");
-          return response.text();
+        .then(r => {
+          if (!r.ok) throw new Error("Contenuto non trovato");
+          return r.text();
         })
         .then(html => {
           document.getElementById("dynamic-content").innerHTML = html;
         })
-        .catch(err => {
-          console.error(err);
-          document.getElementById("dynamic-content").innerHTML = "<p style='color:red;'>Contenuto non disponibile.</p>";
+        .catch(() => {
+          document.getElementById("dynamic-content").innerHTML =
+            "<p style='color:red;'>Contenuto non disponibile.</p>";
         });
     });
   </script>
