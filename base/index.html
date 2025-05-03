@@ -35,6 +35,7 @@
     }
 
     body::before {
+      /* Blur applicato solo al background-image */
       content: "";
       position: fixed;
       top: 0;
@@ -56,13 +57,13 @@
       transform: translateX(-50%);
       width: 85%;
       height: 50px;
-      background: rgba(34, 37, 39, 0.7);
+      background: rgba(34, 37, 39, 0.9); /* più opaco per evitare scomparsa */
       border-radius: 75px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       padding: 0 1em;
-      z-index: 998;
+      z-index: 1000;
     }
 
     header .title {
@@ -86,37 +87,27 @@
     }
 
     @keyframes rainbow {
-      0% {
-        background-position: 0% 82%
-      }
-      50% {
-        background-position: 100% 19%
-      }
-      100% {
-        background-position: 0% 82%
-      }
+      0% { background-position: 0% 82%; }
+      50% { background-position: 100% 19%; }
+      100% { background-position: 0% 82%; }
     }
 
     main {
       animation: fadeInUp 1.5s ease;
       width: 70%;
-      margin: 10% auto;
+      margin: 100px auto 1% auto;  /* spazio sotto header senza blocco grigio */
       padding: 20px;
       background-color: #222527;
       border-radius: 50px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
       text-align: center;
+      position: relative;
+      z-index: 500;
     }
 
     @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(50px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: translateY(50px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     h2, p {
@@ -192,10 +183,10 @@
       const activity = window.location.hash.replace('#', '').toLowerCase();
       if (!activity) return;
 
-      // Imposta lo sfondo dinamico
+      // Sfondo dinamico
       document.body.style.backgroundImage = `url('../resources/${activity}/bg_${activity}.jpg')`;
 
-      // Imposta il titolo nella navbar
+      // Titolo navbar
       const formattedTitle = activity.charAt(0).toUpperCase() + activity.slice(1);
       document.getElementById("header-title").textContent = formattedTitle;
 
