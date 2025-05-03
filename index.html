@@ -421,6 +421,18 @@
       <div class="main">
         <img src="resources/peano.png">
         <br>
+        <a href="kahoot">
+          <span style="cursor: pointer;" class="container" id="cls_kahoot">
+            <div class="text" data-text=" ">
+              <p>Kahoot</p>
+            </div>
+          </span>
+        </a>
+        <p class="status-kahoot"></p><input hidden type="checkbox" id="check-kahoot">
+      </div>
+      <div class="main">
+        <img src="resources/peano.png">
+        <br>
         <a href="studio_individuale">
           <span style="cursor: pointer;" class="container" id="cls_studio_individuale">
             <div class="text" data-text=" ">
@@ -519,6 +531,18 @@
           </span>
         </a>
         <p class="status-scacchi"></p><input hidden type="checkbox" id="check-scacchi">
+      </div>
+      <div class="main">
+        <img src="resources/peano.png">
+        <br>
+        <a href="kahoot">
+          <span style="cursor: pointer;" class="container" id="cls_kahoot">
+            <div class="text" data-text=" ">
+              <p>Kahoot</p>
+            </div>
+          </span>
+        </a>
+        <p class="status-kahoot"></p><input hidden type="checkbox" id="check-kahoot">
       </div>
       <div class="main">
         <img src="resources/peano.png">
@@ -766,6 +790,18 @@
         </a>
         <p class="status-letture_in_bibblioteca"></p><input hidden type="checkbox" id="check-letture_in_bibblioteca">
       </div>
+      <div class="main">
+        <img src="resources/peano.png">
+        <br>
+        <a href="kahoot">
+          <span style="cursor: pointer;" class="container" id="cls_kahoot">
+            <div class="text" data-text=" ">
+              <p>Kahoot</p>
+            </div>
+          </span>
+        </a>
+        <p class="status-kahoot"></p><input hidden type="checkbox" id="check-kahoot">
+      </div>
     </div>
   </section>
 </main>
@@ -782,7 +818,7 @@
           const contentDiv = document.getElementById("cls_" + nome);
           const statusElements = document.querySelectorAll(".status-" + nome);
 
-          if (!checkbox || !contentDiv || !statusElement) continue;
+          if (!checkbox || !contentDiv) continue;
 
           const nomeFormattato = nome.replace(/_/g, " ")
                                      .replace(/\b\w/g, char => char.toUpperCase());
@@ -790,13 +826,17 @@
           if (data[nome]) {
             checkbox.checked = true;
             contentDiv.style.display = "block";
-            statusElements.textContent = nomeFormattato + " disponibile";
-            statusElements.className = "disponibile";
+            statusElements.forEach(el => {
+              el.textContent = nomeFormattato + " disponibile";
+              el.className = "disponibile status-" + nome;
+            });
           } else {
             checkbox.checked = false;
             contentDiv.style.display = "none";
-            statusElements.textContent = nomeFormattato + " non disponibile";
-            statusElements.className = "non-disponibile";
+            statusElements.forEach(el => {
+              el.textContent = nomeFormattato + " non disponibile";
+              el.className = "non-disponibile status-" + nome;
+            });
           }
         }
       })
@@ -807,6 +847,7 @@
 
   window.onload = loadJSON;
 </script>
+
 
 
 
