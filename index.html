@@ -608,7 +608,7 @@
             </div>
           </span>
         </a>
-        <p id="status-problemi_mondo"></p><input hidden type="checkbox" id="check-problemi_mondo">
+        <p class="status-problemi_mondo"></p><input hidden type="checkbox" id="check-problemi_mondo">
       </div>
       <div class="main">
         <img src="resources/peano.png">
@@ -730,13 +730,13 @@
           if (data[nome]) {
             checkbox.checked = true;
             contentDiv.style.display = "block";
-            statusElement.textContent = nomeFormattato + " disponibile";
-            statusElement.className = "disponibile";
+            statusElements.textContent = nomeFormattato + " disponibile";
+            statusElements.className = "disponibile";
           } else {
             checkbox.checked = false;
             contentDiv.style.display = "none";
-            statusElement.textContent = nomeFormattato + " non disponibile";
-            statusElement.className = "non-disponibile";
+            statusElements.textContent = nomeFormattato + " non disponibile";
+            statusElements.className = "non-disponibile";
           }
         }
       })
