@@ -179,7 +179,6 @@
   </header>
 
   <main>
-    <h2>⚽ Attività: <span id="activity-title">Attività</span></h2>
     <div id="dynamic-content">
       <p>Caricamento contenuto in corso...</p>
     </div>
@@ -192,16 +191,10 @@
     document.addEventListener("DOMContentLoaded", () => {
       const activity = window.location.hash.replace('#', '').toLowerCase();
       if (!activity) return;
-
-      // Cambia sfondo
       document.body.style.backgroundImage = `url('../resources/${activity}/bg_${activity}.jpg')`;
-
-      // Cambia titolo
       const title = activity.charAt(0).toUpperCase() + activity.slice(1);
       document.querySelector("header h1").textContent = title;
       document.getElementById("activity-title").textContent = title;
-
-      // Carica contenuto da file
       fetch(`../${activity}/index.html`)
         .then(response => {
           if (!response.ok) throw new Error("Contenuto non trovato");
