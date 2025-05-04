@@ -3,7 +3,7 @@
   "calcetto": false,
   "letture_biblioteca": true,
   "scacchi": true,
-  "kahoot": true,
+  "kahoot": false,
   "studio_individuale": true,
   "funzione_corpo_libero": true,
   "intelligenza_artificiale": true,
