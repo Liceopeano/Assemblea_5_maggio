@@ -26,7 +26,7 @@
   "tedesco": true,
   "corpo_umano": true,
   "indovina_canzone": true,
-  "astronomia": true,
+  "astronomia": false,
   "autodifesa": true,
   "biologia_forense": true,
   "percorso_imprenditoriale": true,
