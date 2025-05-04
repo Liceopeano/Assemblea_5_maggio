@@ -1,7 +1,7 @@
 {
 
   "calcetto": true,
-  "letture_in_bibblioteca": true,
+  "letture_biblioteca": true,
   "scacchi": true,
   "kahoot": true,
   "studio_individuale": true,
