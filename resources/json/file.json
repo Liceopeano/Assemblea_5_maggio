@@ -8,7 +8,7 @@
   "funzione_corpo_libero": true,
   "intelligenza_artificiale": true,
   "problemi_mondo": true,
-  "uno": true,
+  "uno": false,
   "scala": true,
   "parla_pubblico": true,
   "tema_esame": true,
